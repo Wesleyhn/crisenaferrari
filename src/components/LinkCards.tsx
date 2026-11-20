@@ -16,6 +16,7 @@ const featured = {
 
 // Cards da lista: a numeração (01, 02...) é gerada automaticamente.
 const links: LinkItem[] = [
+  { title: 'Race Quizz', description: 'Desafio de conhecimento sobre F1 no geral', href: 'https://race-quiz-beta.netlify.app' },
   { title: 'Botão inútil', description: 'Um dia vai ter alguma coisa funcionando aqui', href: '#' },
 ]
 
