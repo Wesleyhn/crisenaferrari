@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react'
 
+/*
+  Imagens: coloque os arquivos em src/assets/carrossel/ (jpg, jpeg, png, webp, avif).
+  Ordem alfabética: 01-..., 02-..., 03-...
+  Proporção do quadro: 3:2 (padrão de foto de câmera).
+  Tamanho ideal: 1620×1080, ou qualquer outro em 3:2 (1200×800, 1500×1000...).
+  Imagens em outra proporção são cortadas nas bordas para preencher o quadro.
+*/
+
 const files = import.meta.glob<string>('../assets/carrossel/*.{jpg,jpeg,png,webp,avif}', {
   eager: true,
   import: 'default',
@@ -36,7 +44,7 @@ export default function ImageCarousel({ className = '' }: { className?: string }
 
   return (
     <div
-      className={`group relative aspect-656/300 w-full max-w-164 overflow-hidden rounded-xl bg-b2 ${className}`}
+      className={`group relative aspect-3/2 w-full max-w-164 overflow-hidden rounded-xl bg-b2 ${className}`}
       role="region"
       aria-roledescription="carrossel"
       aria-label="Galeria de imagens"
@@ -59,6 +67,11 @@ export default function ImageCarousel({ className = '' }: { className?: string }
 
       {slides.length > 1 && (
         <>
+          {/* sombra suave embaixo para as bolinhas aparecerem em fotos claras */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-b1/70 to-transparent"
+          />
           <button
             type="button"
             onClick={() => go(current - 1)}
