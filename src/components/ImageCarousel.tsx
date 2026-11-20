@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react'
 
-/*
-  Imagens: coloque os arquivos em src/assets/carrossel/ (jpg, jpeg, png, webp, avif).
-  Ordem alfabética: 01-..., 02-..., 03-...
-  Proporção do quadro: 3:2 (padrão de foto de câmera).
-  Tamanho ideal: 1620×1080, ou qualquer outro em 3:2 (1200×800, 1500×1000...).
-  Imagens em outra proporção são cortadas nas bordas para preencher o quadro.
-*/
+
 
 const files = import.meta.glob<string>('../assets/carrossel/*.{jpg,jpeg,png,webp,avif}', {
   eager: true,

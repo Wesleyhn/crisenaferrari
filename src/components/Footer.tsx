@@ -10,7 +10,7 @@ type Social = {
 const socials: Social[] = [
   {
     label: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/criseferrari/',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5">
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -21,7 +21,7 @@ const socials: Social[] = [
   },
   {
     label: 'X',
-    href: '#',
+    href: 'https://x.com/criseferrari_',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="size-5">
         <path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77zm-1.08 16.18h1.7L7.4 4.73H5.58z" />
@@ -46,7 +46,7 @@ export default function Footer({ className = '' }: { className?: string }) {
         </div>
 
         <p className="font-sans text-xs tracking-widest text-c5 uppercase">
-          Conceito não oficial · Para os tifosi
+          Página não oficial · Feita por tifosi
         </p>
 
         <ul className="flex gap-4">
