@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+/* Paleta do projeto: vira utilitários como bg-surface, text-ink, text-accent... */
+@theme {
+  --color-b1: #0b0b0c;
+  --color-b2: #171719;
+  --color-b3: #242427;
+  --color-b4: #303034;
+  --color-c5: #a7a7ac;
+  --color-c1: #f5f5ee;
+
+  --color-P1: #d91720;
+  --color-P2: #b5121b;
+  --color-P3: #941018;
+  --color-P4: #ef1b24;
+  --color-P5: #ffe45c;
+  --color-P6: #16884b;
+
+  /* Fontes: font-display (títulos), font-sans (texto, padrão), font-mono (números/código) */
+  --font-display: 'Saira Condensed', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --animate-fade-in: fade-in 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+}
+
+/* Fade in na entrada da página.
+   Uso: className="fade-in stagger-2" → aparece 2 × 100ms depois do início.
+   Quem prefere menos movimento no sistema não vê a animação. */
+@utility fade-in {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: var(--animate-fade-in);
+    animation-delay: calc(var(--stagger, 0) * 100ms);
+  }
+}
+
+@utility stagger-* {
+  --stagger: --value(integer);
+}
+
+/* Fundo escuro na página inteira: evita a faixa branca quando o conteúdo
+   é mais baixo que a tela (e no "puxar" da rolagem no celular). */
+@layer base {
+  html {
+    color-scheme: dark;
+    @apply bg-b1;
+  }
+}
