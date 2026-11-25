@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { Link } from 'react-router-dom'
 
 type LinkItem = {
   title: string
@@ -10,8 +11,8 @@ type LinkItem = {
 const featured = {
   eyebrow: 'Seja um burrinho de Maranello',
   title: 'Faça parte da resenha',
-  description: 'Entre no nosso grupo do WhatsApp.',
-  href: 'https://chat.whatsapp.com/JF7Le0SvI3JBr0jhqOwIGj',
+  description: 'Conheça as regras e entre no nosso grupo do WhatsApp.',
+  to: '/comunidade',
 }
 
 // Cards da lista: a numeração (01, 02...) é gerada automaticamente.
@@ -27,8 +28,8 @@ export default function LinkCards() {
         Destinos para os tifosi
       </span>
 
-      <a
-        href={featured.href}
+      <Link
+        to={featured.to}
         className="fade-in stagger-3 group flex flex-col rounded-xl bg-P1 p-6 text-c1 transition-colors hover:bg-P2"
       >
         <span className="flex items-center justify-between font-sans text-xs tracking-widest uppercase">
@@ -50,7 +51,7 @@ export default function LinkCards() {
           {featured.title}
         </span>
         <span className="mt-1 font-sans text-sm">{featured.description}</span>
-      </a>
+      </Link>
 
       <ul className="flex flex-col gap-4">
         {links.map((link, i) => (

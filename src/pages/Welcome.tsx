@@ -1,16 +1,12 @@
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 import ImageCarousel from '../components/ImageCarousel'
 import LinkCards from '../components/LinkCards'
 
 export default function Welcome() {
   return (
     <main className="bg-b1 ">
-      <section className="border-b border-c5">
-        <div className="fade-in flex items-center justify-between container m-auto px-4 py-6 max-md:py-4">
-          <h1 className="text-4xl max-md:text-lg font-display font-bold text-c1 uppercase">Crise na Ferrari</h1>
-          <p className="text-xs font-sans uppercase text-c5">Burrinhos de Maranello</p>
-        </div>
-      </section>
+      <Header />
       <section className="container flex max-md:flex-col m-auto px-4 my-12 py-6 max-md:py-4  gap-4 justify-around">
 
         <div className="flex flex-col gap-4 max-md:flex-col-reverse">
