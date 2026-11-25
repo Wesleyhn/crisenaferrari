@@ -1,0 +1,21 @@
+# Configuração do servidor (Apache/LiteSpeed da Hostinger)
+
+# Força HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Rotas do React: qualquer endereço que não seja um arquivo real
+# (ex.: /explore) abre o index.html e o React decide o que mostrar.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Cache: o HTML sempre é conferido; arquivos da raiz (favicon, og-image...)
+# ficam 1 dia. Os de /assets têm cache longo (veja assets/.htaccess).
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=86400"
+  <FilesMatch "\.(html|webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
